@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import "./globals.css";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "Premium modest activewear, sports hijabs, and squat-proof athletic wear engineered for performance and coverage.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"

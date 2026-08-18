@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { FREE_SHIPPING_THRESHOLD } from "@/lib/stripe";
+import { FREE_SHIPPING_THRESHOLD } from "@/lib/constants";
 import { cn, formatPrice } from "@/lib/utils";
 
 export function CartDrawer() {

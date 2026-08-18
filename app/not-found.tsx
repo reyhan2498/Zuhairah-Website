@@ -4,9 +4,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-lg px-4 py-24 text-center">
       <p className="text-6xl font-serif font-semibold text-brand-green/20">404</p>
-      <h1 className="mt-4 text-xl font-semibold text-brand-charcoal">
-        Page Not Found
-      </h1>
+      <h1 className="mt-4 text-xl font-semibold text-brand-charcoal">Page Not Found</h1>
       <p className="mt-2 text-sm text-brand-charcoal/60">
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
