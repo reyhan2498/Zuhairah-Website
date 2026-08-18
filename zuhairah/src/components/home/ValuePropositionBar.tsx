@@ -1,0 +1,48 @@
+import { Droplets, Eye, Heart, Shield } from "lucide-react";
+
+const values = [
+  {
+    icon: Droplets,
+    title: "Sweat-Wicking Fabrics",
+    description: "Advanced moisture management keeps you dry through every rep.",
+  },
+  {
+    icon: Shield,
+    title: "Stay-in-Place Fit",
+    description: "Non-slip designs that move with you, never against you.",
+  },
+  {
+    icon: Eye,
+    title: "100% Opaque",
+    description: "Squat-proof, bend-proof coverage you can trust.",
+  },
+  {
+    icon: Heart,
+    title: "Ethical Manufacturing",
+    description: "Responsibly sourced materials and fair-wage production.",
+  },
+];
+
+export function ValuePropositionBar() {
+  return (
+    <section className="border-y border-brand-sand/40 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {values.map((value) => (
+            <div key={value.title} className="flex flex-col items-center text-center lg:items-start lg:text-left">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10 mb-3">
+                <value.icon className="h-5 w-5 text-brand-green" />
+              </div>
+              <h3 className="text-sm font-semibold text-brand-charcoal">
+                {value.title}
+              </h3>
+              <p className="mt-1 text-xs text-brand-charcoal/60 leading-relaxed">
+                {value.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
