@@ -1,0 +1,20 @@
+# Zuhairah - Modest Activewear & Sports Hijab E-Commerce Rules
+
+## Project Identity & Architecture
+- **Brand Name:** Zuhairah (Modest Activewear & Islamic Workout Clothes for Women)
+- **Tech Stack:** Next.js 14+ (App Router, Server Actions), Tailwind CSS, TypeScript, Supabase (Postgres & Auth), Stripe Checkout API.
+- **Hosting & Cost Constraints:** Vercel free tier (Frontend), Supabase free tier (Backend). Keep bundle sizes minimal.
+
+## UI/UX Standards
+- **Theme:** Elegant, empowering, athletic, premium.
+- **Color Palette:** Warm Terracotta/Rose `#C86D51`, Deep Slate/Charcoal `#1E293B`, Soft Cream `#FDFBF7`.
+- **Components:** Use Tailwind CSS and lucide-react icons.
+
+## Specific E-Commerce Domain Logic
+- Product variants must support: `Size` (XS-3XL), `Color`, `Coverage Level` (Full Coverage, Mid-Length), and `Opacity` (e.g., 100% Squat-Proof).
+- Every product detail view requires key activewear specs: Moisture-wicking, Breathability score, and Slip-resistance rating for sports hijabs.
+
+## Code Quality Requirements
+- Always use TypeScript interfaces for database payloads and API responses.
+- Implement React Server Components for product catalog pages for optimal SEO.
+- Use Supabase SSR package (`@supabase/ssr`) for Auth and DB access.
