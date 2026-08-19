@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${inter.variable} ${dmSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-brand-offwhite text-brand-charcoal">
+      <body className="min-h-full flex flex-col font-sans bg-brand-cream text-brand-charcoal">
         <SiteLayout>{children}</SiteLayout>
       </body>
     </html>

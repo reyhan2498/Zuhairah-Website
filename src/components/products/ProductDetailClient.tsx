@@ -70,7 +70,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <p>{product.fabric_details.split("|").slice(-1)[0]?.trim()}</p>
           <dl className="grid grid-cols-1 gap-2">
             {Object.entries(fabricSpecs).map(([key, value]) => (
-              <div key={key} className="flex justify-between border-b border-brand-sand/30 pb-2">
+              <div key={key} className="flex justify-between border-b border-brand-cream-deep/30 pb-2">
                 <dt className="font-medium text-brand-charcoal">{key}</dt>
                 <dd>{value}</dd>
               </div>
@@ -87,20 +87,20 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       title: "Modesty & Opacity Rating",
       content: (
         <div className="space-y-3 text-sm text-brand-charcoal/70">
-          <div className="rounded-lg bg-brand-green/5 p-3">
-            <p className="text-xs uppercase tracking-wider text-brand-green font-semibold mb-1">
+          <div className="rounded-lg bg-brand-terracotta/5 p-3">
+            <p className="text-xs uppercase tracking-wider text-brand-terracotta font-semibold mb-1">
               Opacity Rating
             </p>
             <p className="font-medium text-brand-charcoal">{product.opacity_rating}</p>
           </div>
-          <div className="rounded-lg bg-brand-sand/20 p-3">
+          <div className="rounded-lg bg-brand-cream-deep/20 p-3">
             <p className="text-xs uppercase tracking-wider text-brand-charcoal/50 font-semibold mb-1">
               Coverage Level
             </p>
             <p className="font-medium text-brand-charcoal">{product.coverage_level}</p>
           </div>
           {isHijab && fabricSpecs["Slip-Resistance"] && (
-            <div className="rounded-lg bg-brand-sand/20 p-3">
+            <div className="rounded-lg bg-brand-cream-deep/20 p-3">
               <p className="text-xs uppercase tracking-wider text-brand-charcoal/50 font-semibold mb-1">
                 Non-Slip Fit Rating
               </p>
@@ -151,7 +151,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <h1 className="mt-2 text-2xl sm:text-3xl font-serif font-semibold text-brand-charcoal">
             {product.title}
           </h1>
-          <p className="mt-3 text-2xl font-semibold text-brand-green">
+          <p className="mt-3 text-2xl font-semibold text-brand-terracotta">
             {formatPrice(Number(product.base_price))}
           </p>
           <p className="mt-4 text-sm text-brand-charcoal/70 leading-relaxed">
@@ -176,8 +176,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     className={cn(
                       "h-8 w-8 rounded-full border-2 transition-all",
                       selectedColor === color.color_name
-                        ? "border-brand-green scale-110"
-                        : "border-brand-sand hover:border-brand-charcoal/30"
+                        ? "border-brand-terracotta scale-110"
+                        : "border-brand-cream-deep hover:border-brand-charcoal/30"
                     )}
                     style={{ backgroundColor: color.color_hex }}
                     title={color.color_name}
@@ -206,10 +206,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       className={cn(
                         "min-w-[48px] rounded-md border px-3 py-2 text-xs font-medium transition-colors",
                         selectedSize === size
-                          ? "border-brand-green bg-brand-green text-brand-cream"
+                          ? "border-brand-terracotta bg-brand-terracotta text-brand-cream"
                           : isAvailable
-                            ? "border-brand-sand text-brand-charcoal hover:border-brand-green"
-                            : "border-brand-sand/40 text-brand-charcoal/30 cursor-not-allowed line-through"
+                            ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-terracotta"
+                            : "border-brand-cream-deep/40 text-brand-charcoal/30 cursor-not-allowed line-through"
                       )}
                     >
                       {size}
@@ -225,11 +225,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             <p className="text-xs font-semibold uppercase tracking-wider text-brand-charcoal mb-3">
               Quantity
             </p>
-            <div className="inline-flex items-center border border-brand-sand/60 rounded-md">
+            <div className="inline-flex items-center border border-brand-cream-deep/60 rounded-md">
               <button
                 type="button"
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="p-2.5 hover:bg-brand-sand/30 transition-colors"
+                className="p-2.5 hover:bg-brand-cream-deep/30 transition-colors"
                 aria-label="Decrease quantity"
               >
                 <Minus className="h-4 w-4" />
@@ -240,7 +240,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               <button
                 type="button"
                 onClick={() => setQuantity(quantity + 1)}
-                className="p-2.5 hover:bg-brand-sand/30 transition-colors"
+                className="p-2.5 hover:bg-brand-cream-deep/30 transition-colors"
                 aria-label="Increase quantity"
               >
                 <Plus className="h-4 w-4" />
@@ -253,7 +253,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             type="button"
             onClick={handleAddToCart}
             disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-            className="hidden lg:flex mt-8 w-full items-center justify-center gap-2 rounded-lg bg-brand-green py-4 text-sm font-semibold text-brand-cream hover:bg-brand-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="hidden lg:flex mt-8 w-full items-center justify-center gap-2 rounded-lg bg-brand-terracotta py-4 text-sm font-semibold text-brand-cream hover:bg-brand-terracotta/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ShoppingBag className="h-4 w-4" />
             {!selectedVariant
@@ -264,7 +264,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           </button>
 
           {/* Accordions */}
-          <div className="mt-8 divide-y divide-brand-sand/40 border-t border-brand-sand/40">
+          <div className="mt-8 divide-y divide-brand-cream-deep/40 border-t border-brand-cream-deep/40">
             {accordions.map((accordion) => (
               <div key={accordion.id}>
                 <button
@@ -294,12 +294,12 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       </div>
 
       {/* Sticky mobile add to cart */}
-      <div className="fixed bottom-0 inset-x-0 z-30 lg:hidden bg-brand-offwhite border-t border-brand-sand/40 p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+      <div className="fixed bottom-0 inset-x-0 z-30 lg:hidden bg-brand-cream border-t border-brand-cream-deep/40 p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         <button
           type="button"
           onClick={handleAddToCart}
           disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-green py-3.5 text-sm font-semibold text-brand-cream hover:bg-brand-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-terracotta py-3.5 text-sm font-semibold text-brand-cream hover:bg-brand-terracotta/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ShoppingBag className="h-4 w-4" />
           {!selectedVariant

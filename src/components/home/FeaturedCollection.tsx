@@ -7,7 +7,7 @@ export async function FeaturedCollection() {
   const products = await getFeaturedProducts();
 
   return (
-    <section className="py-16 sm:py-20 bg-brand-offwhite">
+    <section className="py-16 sm:py-20 bg-brand-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>
@@ -20,7 +20,7 @@ export async function FeaturedCollection() {
           </div>
           <Link
             href="/shop"
-            className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-brand-green hover:underline"
+            className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-brand-terracotta hover:underline"
           >
             View All
             <ArrowRight className="h-4 w-4" />
@@ -29,8 +29,14 @@ export async function FeaturedCollection() {
 
         {products.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product, index) => (
+              <div
+                key={product.id}
+                className="animate-fade-up"
+                style={{ animationDelay: `${Math.min(index, 4) * 80}ms` }}
+              >
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         ) : (
@@ -45,7 +51,7 @@ export async function FeaturedCollection() {
         <div className="mt-8 text-center sm:hidden">
           <Link
             href="/shop"
-            className="inline-flex items-center gap-1 text-sm font-medium text-brand-green hover:underline"
+            className="inline-flex items-center gap-1 text-sm font-medium text-brand-terracotta hover:underline"
           >
             View All Products
             <ArrowRight className="h-4 w-4" />

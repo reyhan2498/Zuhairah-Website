@@ -48,14 +48,15 @@ export function ModestyFitGuide() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {ratings.map((category) => (
+          {ratings.map((category, index) => (
             <div
               key={category.label}
-              className="rounded-xl border border-brand-sand/40 bg-brand-offwhite p-6 hover:border-brand-green/30 transition-colors"
+              className="animate-fade-up rounded-xl border border-brand-cream-deep/40 bg-brand-cream p-6 transition-all duration-300 hover:border-brand-terracotta/30 hover:-translate-y-1 hover:shadow-md"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-green/10">
-                  <category.icon className="h-4 w-4 text-brand-green" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-terracotta/10">
+                  <category.icon className="h-4 w-4 text-brand-terracotta" />
                 </div>
                 <h3 className="text-sm font-semibold text-brand-charcoal">
                   {category.label}
@@ -71,7 +72,7 @@ export function ModestyFitGuide() {
                       <p className="font-medium text-brand-charcoal">{level.name}</p>
                       <p className="text-brand-charcoal/50 mt-0.5">{level.desc}</p>
                     </div>
-                    <span className="shrink-0 rounded bg-brand-green/10 px-2 py-0.5 text-[10px] font-semibold text-brand-green">
+                    <span className="shrink-0 rounded bg-brand-terracotta/10 px-2 py-0.5 text-[10px] font-semibold text-brand-terracotta">
                       {level.score}
                     </span>
                   </li>

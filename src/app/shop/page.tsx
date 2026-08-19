@@ -34,7 +34,7 @@ export default async function ShopPage() {
         <div className="text-center py-20 text-brand-charcoal/50">
           <p className="text-sm">No products available yet.</p>
           <p className="text-xs mt-2">
-            Set up Supabase and run <code className="text-brand-green">npm run seed</code> to populate the catalog.
+            Set up Supabase and run <code className="text-brand-terracotta">npm run seed</code> to populate the catalog.
           </p>
         </div>
       )}

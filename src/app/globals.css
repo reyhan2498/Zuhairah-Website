@@ -1,24 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --brand-green: #1b3b36;
-  --brand-sand: #e2d7c5;
-  --brand-offwhite: #faf9f6;
-  --brand-cream: #f5f0e8;
-  --brand-charcoal: #1c1c1c;
+  /* Zuhairah brand palette */
+  --brand-terracotta: #c86d51;
+  --brand-charcoal: #1e293b;
+  --brand-cream: #fdfbf7;
+  --brand-cream-deep: #f3e9dc;
 }
 
 @theme inline {
-  --color-brand-green: var(--brand-green);
-  --color-brand-sand: var(--brand-sand);
-  --color-brand-offwhite: var(--brand-offwhite);
-  --color-brand-cream: var(--brand-cream);
+  --color-brand-terracotta: var(--brand-terracotta);
   --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-cream-deep: var(--brand-cream-deep);
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-serif: var(--font-dm-serif), Georgia, serif;
 }
 
 body {
-  background: var(--brand-offwhite);
+  background: var(--brand-cream);
   color: var(--brand-charcoal);
+}
+
+/* -----------------------------------------------------------
+   Lightweight, GPU-friendly entrance animations for the
+   homepage. Pure CSS so above-the-fold sections (Hero, value
+   props, featured grid) can stay Server Components with no
+   hydration flash and no client-side JS cost.
+   ----------------------------------------------------------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
 }

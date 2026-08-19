@@ -59,6 +59,18 @@ export async function POST(request: NextRequest) {
             name: variant.products.title,
             description: `${variant.color_name} / ${variant.size}`,
             images: variant.products.images?.slice(0, 1) ?? [],
+            // Complete variant metadata per line item so fulfillment can
+            // resolve exact SKU/size/color from the Stripe session alone,
+            // without a second round-trip to Supabase.
+            metadata: {
+              product_id: variant.product_id,
+              variant_id: variant.id,
+              sku: variant.sku,
+              size: variant.size,
+              color_name: variant.color_name,
+              coverage_level: variant.products.coverage_level,
+              opacity_rating: variant.products.opacity_rating,
+            },
           },
           unit_amount: unitAmount,
         },

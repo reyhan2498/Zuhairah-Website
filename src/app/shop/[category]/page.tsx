@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/products/ProductCard";
 import { getProductsByCategory, getCategories } from "@/lib/supabase/queries";
@@ -51,24 +52,24 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Category filter pills */}
       <div className="flex flex-wrap gap-2 mb-8">
-        <a
+        <Link
           href="/shop"
-          className="rounded-full border border-brand-sand px-4 py-1.5 text-xs font-medium text-brand-charcoal/70 hover:border-brand-green hover:text-brand-green transition-colors"
+          className="rounded-full border border-brand-cream-deep px-4 py-1.5 text-xs font-medium text-brand-charcoal/70 transition-colors hover:border-brand-terracotta hover:text-brand-terracotta"
         >
           All
-        </a>
+        </Link>
         {categories.map((cat) => (
-          <a
+          <Link
             key={cat.slug}
             href={`/shop/${cat.slug}`}
             className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
               cat.slug === category
-                ? "border-brand-green bg-brand-green text-brand-cream"
-                : "border-brand-sand text-brand-charcoal/70 hover:border-brand-green hover:text-brand-green"
+                ? "border-brand-terracotta bg-brand-terracotta text-brand-cream"
+                : "border-brand-cream-deep text-brand-charcoal/70 hover:border-brand-terracotta hover:text-brand-terracotta"
             }`}
           >
             {cat.name}
-          </a>
+          </Link>
         ))}
       </div>
 

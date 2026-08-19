@@ -19,8 +19,8 @@ export default async function CheckoutSuccessPage({
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
       <div className="flex justify-center mb-6">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-green/10">
-          <CheckCircle className="h-8 w-8 text-brand-green" />
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-terracotta/10">
+          <CheckCircle className="h-8 w-8 text-brand-terracotta" />
         </div>
       </div>
 
@@ -39,8 +39,8 @@ export default async function CheckoutSuccessPage({
       )}
 
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-        <div className="rounded-xl border border-brand-sand/40 bg-white p-5">
-          <Package className="h-5 w-5 text-brand-green mb-3" />
+        <div className="rounded-xl border border-brand-cream-deep/40 bg-white p-5">
+          <Package className="h-5 w-5 text-brand-terracotta mb-3" />
           <h2 className="text-sm font-semibold text-brand-charcoal">
             What&apos;s Next
           </h2>
@@ -49,8 +49,8 @@ export default async function CheckoutSuccessPage({
             and tracking information once your items ship.
           </p>
         </div>
-        <div className="rounded-xl border border-brand-sand/40 bg-white p-5">
-          <Truck className="h-5 w-5 text-brand-green mb-3" />
+        <div className="rounded-xl border border-brand-cream-deep/40 bg-white p-5">
+          <Truck className="h-5 w-5 text-brand-terracotta mb-3" />
           <h2 className="text-sm font-semibold text-brand-charcoal">
             Delivery
           </h2>
@@ -64,13 +64,13 @@ export default async function CheckoutSuccessPage({
       <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center rounded-lg bg-brand-green px-6 py-3 text-sm font-semibold text-brand-cream hover:bg-brand-green/90 transition-colors"
+          className="inline-flex items-center justify-center rounded-lg bg-brand-terracotta px-6 py-3 text-sm font-semibold text-brand-cream hover:bg-brand-terracotta/90 transition-colors"
         >
           Continue Shopping
         </Link>
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-lg border border-brand-sand px-6 py-3 text-sm font-semibold text-brand-charcoal hover:border-brand-green hover:text-brand-green transition-colors"
+          className="inline-flex items-center justify-center rounded-lg border border-brand-cream-deep px-6 py-3 text-sm font-semibold text-brand-charcoal hover:border-brand-terracotta hover:text-brand-terracotta transition-colors"
         >
           Back to Home
         </Link>

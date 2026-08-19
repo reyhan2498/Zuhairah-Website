@@ -1,0 +1,8 @@
+<svg width="600" height="800" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" fill="#F3E9DC"/>
+  <g opacity="0.5">
+    <path d="M240 300h120l30 40v220a20 20 0 0 1-20 20H230a20 20 0 0 1-20-20V340l30-40Z" fill="none" stroke="#C86D51" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M255 300a45 45 0 0 0 90 0" fill="none" stroke="#C86D51" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="300" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#1E293B" opacity="0.55">Zuhairah</text>
+</svg>

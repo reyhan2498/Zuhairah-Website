@@ -56,10 +56,10 @@ export default function MissionPage() {
         {pillars.map((pillar) => (
           <div
             key={pillar.title}
-            className="rounded-xl border border-brand-sand/40 bg-white p-6"
+            className="rounded-xl border border-brand-cream-deep/40 bg-white p-6"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10 mb-4">
-              <pillar.icon className="h-5 w-5 text-brand-green" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-terracotta/10 mb-4">
+              <pillar.icon className="h-5 w-5 text-brand-terracotta" />
             </div>
             <h2 className="text-lg font-semibold text-brand-charcoal mb-2">
               {pillar.title}
@@ -71,11 +71,11 @@ export default function MissionPage() {
         ))}
       </div>
 
-      <div className="mt-16 max-w-2xl mx-auto text-center rounded-xl bg-brand-green p-8 sm:p-12">
-        <h2 className="text-xl sm:text-2xl font-serif font-semibold text-brand-offwhite">
+      <div className="mt-16 max-w-2xl mx-auto text-center rounded-xl bg-brand-charcoal p-8 sm:p-12">
+        <h2 className="text-xl sm:text-2xl font-serif font-semibold text-brand-cream">
           Join the Movement
         </h2>
-        <p className="mt-3 text-sm text-brand-sand/80 leading-relaxed">
+        <p className="mt-3 text-sm text-brand-cream-deep/80 leading-relaxed">
           Every purchase supports our mission to make modest activewear accessible,
           beautiful, and uncompromisingly high-performance.
         </p>
