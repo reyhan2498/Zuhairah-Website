@@ -32,14 +32,14 @@ const ratings = [
 
 export function ModestyFitGuide() {
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="bg-brand-lilac/40 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-brand-charcoal/50 mb-2">
             Know Before You Buy
           </p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-brand-charcoal">
-            Modesty & Fit Guide
+          <h2 className="font-serif text-3xl font-normal text-brand-charcoal sm:text-4xl">
+            Made for your kind of movement
           </h2>
           <p className="mt-3 text-sm text-brand-charcoal/60 leading-relaxed">
             Every Zuhairah piece is rated for breathability, coverage, and opacity

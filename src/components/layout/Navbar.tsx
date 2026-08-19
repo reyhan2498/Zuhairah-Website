@@ -21,7 +21,7 @@ export function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <header className="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-sm border-b border-brand-cream-deep/40">
+    <header className="sticky top-0 z-40 border-b border-brand-charcoal/10 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Mobile menu button */}
@@ -37,7 +37,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.2em] text-brand-terracotta shrink-0"
+            className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-charcoal shrink-0"
           >
             ZUHAIRAH
           </Link>
@@ -48,7 +48,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-brand-charcoal/80 hover:text-brand-terracotta transition-colors tracking-wide"
+                className="text-[11px] font-semibold uppercase text-brand-charcoal/80 hover:text-brand-terracotta transition-colors tracking-[0.14em]"
               >
                 {link.label}
               </Link>

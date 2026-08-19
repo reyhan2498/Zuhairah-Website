@@ -25,8 +25,8 @@ const values = [
 
 export function ValuePropositionBar() {
   return (
-    <section className="border-y border-brand-cream-deep/40 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <section className="border-y border-brand-charcoal/10 bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {values.map((value, index) => (
             <div
@@ -34,7 +34,7 @@ export function ValuePropositionBar() {
               className="animate-fade-up flex flex-col items-center text-center lg:items-start lg:text-left"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-terracotta/10 mb-3">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-pink/50">
                 <value.icon className="h-5 w-5 text-brand-terracotta" />
               </div>
               <h3 className="text-sm font-semibold text-brand-charcoal">

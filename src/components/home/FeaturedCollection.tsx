@@ -7,20 +7,20 @@ export async function FeaturedCollection() {
   const products = await getFeaturedProducts();
 
   return (
-    <section className="py-16 sm:py-20 bg-brand-cream">
+    <section className="bg-brand-cream py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-brand-charcoal/50 mb-2">
-              Curated For You
+            <p className="mb-2 text-xs uppercase tracking-[0.2em] text-brand-terracotta">
+              A little something for every move
             </p>
-            <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-brand-charcoal">
-              Featured Collection
+            <h2 className="font-serif text-3xl font-normal text-brand-charcoal sm:text-4xl">
+              Meet your new favorites
             </h2>
           </div>
           <Link
             href="/shop"
-            className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-brand-terracotta hover:underline"
+            className="hidden items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand-charcoal hover:text-brand-terracotta sm:inline-flex"
           >
             View All
             <ArrowRight className="h-4 w-4" />
@@ -28,7 +28,7 @@ export async function FeaturedCollection() {
         </div>
 
         {products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => (
               <div
                 key={product.id}

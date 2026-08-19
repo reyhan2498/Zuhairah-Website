@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  /* Zuhairah brand palette */
-  --brand-terracotta: #c86d51;
-  --brand-charcoal: #1e293b;
-  --brand-cream: #fdfbf7;
-  --brand-cream-deep: #f3e9dc;
+  --brand-terracotta: #e86f92;
+  --brand-charcoal: #202020;
+  --brand-cream: #fffafc;
+  --brand-cream-deep: #f9dce6;
+  --brand-pink: #f7b6c8;
+  --brand-lilac: #d8c7ed;
+  --brand-lime: #e5f27a;
 }
 
 @theme inline {
@@ -13,6 +15,9 @@
   --color-brand-charcoal: var(--brand-charcoal);
   --color-brand-cream: var(--brand-cream);
   --color-brand-cream-deep: var(--brand-cream-deep);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-lilac: var(--brand-lilac);
+  --color-brand-lime: var(--brand-lime);
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-serif: var(--font-dm-serif), Georgia, serif;
 }
@@ -20,6 +25,19 @@
 body {
   background: var(--brand-cream);
   color: var(--brand-charcoal);
+}
+
+::selection {
+  background: var(--brand-pink);
+  color: var(--brand-charcoal);
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 24s linear infinite;
 }
 
 /* -----------------------------------------------------------
