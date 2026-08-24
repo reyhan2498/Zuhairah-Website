@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-brand-pink">
+    <section className="relative overflow-hidden bg-brand-purple">
       <div className="grid min-h-[540px] lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative z-10 flex items-center px-6 py-16 sm:px-12 lg:px-16 xl:px-24">
           <div className="max-w-xl">
@@ -46,9 +46,9 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="relative min-h-[330px] overflow-hidden bg-brand-lilac lg:min-h-0">
+        <div className="relative min-h-[330px] overflow-hidden bg-brand-purple lg:min-h-0">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=85')] bg-cover bg-center transition-transform duration-700 hover:scale-105" />
-          <div className="absolute inset-0 bg-brand-lilac/15 mix-blend-color" />
+          <div className="absolute inset-0 bg-brand-purple/15 mix-blend-color" />
           <span className="absolute bottom-5 right-6 rounded-full bg-white/90 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-charcoal">
             Feel good. Go far.
           </span>

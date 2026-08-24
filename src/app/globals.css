@@ -6,6 +6,8 @@
   --brand-white: #ffffff;
   --brand-white-deep: #f2f0f5;
   --brand-gold: #d4af37; 
+  --brand-charcoal: #1c1c1e;
+  --brand-cream: #f5f5dc;
 }
 
 @theme inline {
