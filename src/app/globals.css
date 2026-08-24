@@ -1,25 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --brand-terracotta: #e86f92;
-  --brand-charcoal: #202020;
-  --brand-cream: #fffafc;
-  --brand-cream-deep: #f9dce6;
-  --brand-pink: #f7b6c8;
-  --brand-lilac: #d8c7ed;
-  --brand-lime: #e5f27a;
+  --brand-purple: #6d28d9;
+  --brand-black: #0f0f12;
+  --brand-white: #ffffff;
+  --brand-white-deep: #f2f0f5;
+  --brand-gold: #d4af37; 
 }
 
 @theme inline {
-  --color-brand-terracotta: var(--brand-terracotta);
-  --color-brand-charcoal: var(--brand-charcoal);
-  --color-brand-cream: var(--brand-cream);
-  --color-brand-cream-deep: var(--brand-cream-deep);
-  --color-brand-pink: var(--brand-pink);
-  --color-brand-lilac: var(--brand-lilac);
-  --color-brand-lime: var(--brand-lime);
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-black: var(--brand-black);
+  --color-brand-white: var(--brand-white);
+  --color-brand-white-deep: var(--brand-white-deep);
+  --color-brand-gold: var(--brand-gold);
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
 }
 
 body {
@@ -28,7 +24,7 @@ body {
 }
 
 ::selection {
-  background: var(--brand-pink);
+  background: var(--brand-gold);
   color: var(--brand-charcoal);
 }
 
