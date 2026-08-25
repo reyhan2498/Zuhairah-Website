@@ -2,14 +2,14 @@
 
 :root {
   /* Zuhairah brand palette — the ONLY color tokens used across the app */
-  --brand-rose: #d4a373;
-  --brand-charcoal: #18181b;
+  --brand-purple: #8d5ca3de;
+  --brand-charcoal: #515155;
   --brand-cream: #fdfbf7;
   --brand-cream-deep: #f3e9dc;
 }
 
 @theme inline {
-  --color-brand-rose: var(--brand-rose);
+  --color-brand-purple: var(--brand-purple);
   --color-brand-charcoal: var(--brand-charcoal);
   --color-brand-cream: var(--brand-cream);
   --color-brand-cream-deep: var(--brand-cream-deep);
@@ -23,7 +23,7 @@ body {
 }
 
 ::selection {
-  background: var(--brand-rose);
+  background: var(--brand-purple);
   color: var(--brand-cream);
 }
 

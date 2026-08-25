@@ -81,7 +81,7 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
             <h2 className="mt-2 font-serif text-3xl font-semibold text-brand-charcoal sm:text-4xl">
               {product.title}
             </h2>
-            <p className="mt-3 text-2xl font-semibold text-brand-rose">
+            <p className="mt-3 text-2xl font-semibold text-brand-purple">
               {formatPrice(Number(product.base_price))}
             </p>
             <p className="mt-4 text-sm leading-relaxed text-brand-charcoal/70">
@@ -90,8 +90,8 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
 
             {/* Coverage / opacity specs */}
             <div className="mt-6 flex flex-wrap gap-3">
-              <div className="rounded-lg bg-brand-rose/10 px-4 py-2.5">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-rose">
+              <div className="rounded-lg bg-brand-purple/10 px-4 py-2.5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-purple">
                   Opacity Rating
                 </p>
                 <p className="text-sm font-medium text-brand-charcoal">
@@ -126,7 +126,7 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
                       className={cn(
                         "h-8 w-8 rounded-full border-2 transition-all",
                         selectedColor === color.color_name
-                          ? "border-brand-rose scale-110"
+                          ? "border-brand-purple scale-110"
                           : "border-brand-cream-deep hover:border-brand-charcoal/30"
                       )}
                       style={{ backgroundColor: color.color_hex }}
@@ -156,9 +156,9 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
                         className={cn(
                           "min-w-[48px] rounded-md border px-3 py-2 text-xs font-medium transition-colors",
                           selectedSize === size
-                            ? "border-brand-rose bg-brand-rose text-white"
+                            ? "border-brand-purple bg-brand-purple text-white"
                             : isAvailable
-                              ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-rose"
+                              ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-purple"
                               : "border-brand-cream-deep/40 text-brand-charcoal/30 cursor-not-allowed line-through"
                         )}
                       >
@@ -188,7 +188,7 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
               </button>
               <Link
                 href={`/products/${product.slug}`}
-                className="flex items-center justify-center rounded-lg border border-brand-charcoal/20 px-6 py-3.5 text-sm font-semibold text-brand-charcoal transition-colors hover:border-brand-rose hover:text-brand-rose"
+                className="flex items-center justify-center rounded-lg border border-brand-charcoal/20 px-6 py-3.5 text-sm font-semibold text-brand-charcoal transition-colors hover:border-brand-purple hover:text-brand-purple"
               >
                 Full Details
               </Link>

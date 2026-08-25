@@ -51,8 +51,8 @@ export function BrandStory() {
               key={pillar.title}
               className="rounded-xl border border-brand-cream-deep bg-white p-6"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-rose/10">
-                <pillar.icon className="h-5 w-5 text-brand-rose" />
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10">
+                <pillar.icon className="h-5 w-5 text-brand-purple" />
               </div>
               <h3 className="mb-2 text-base font-semibold text-brand-charcoal">
                 {pillar.title}

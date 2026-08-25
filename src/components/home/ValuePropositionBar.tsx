@@ -34,8 +34,8 @@ export function ValuePropositionBar() {
               className="animate-fade-up flex flex-col items-center text-center lg:items-start lg:text-left"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-rose/15">
-                <value.icon className="h-5 w-5 text-brand-rose" />
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/15">
+                <value.icon className="h-5 w-5 text-brand-purple" />
               </div>
               <h3 className="text-sm font-semibold text-brand-charcoal">
                 {value.title}

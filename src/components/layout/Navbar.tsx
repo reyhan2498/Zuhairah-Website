@@ -23,7 +23,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-purple transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -33,7 +33,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-charcoal shrink-0"
+            className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-purple shrink-0"
           >
             ZUHAIRAH
           </Link>
@@ -44,7 +44,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[11px] font-semibold uppercase text-brand-charcoal/80 hover:text-brand-rose transition-colors tracking-[0.14em]"
+                className="text-[11px] font-semibold uppercase text-brand-charcoal/80 hover:text-brand-purple transition-colors tracking-[0.14em]"
               >
                 {link.label}
               </Link>
@@ -55,12 +55,12 @@ export function Navbar() {
           <button
             type="button"
             onClick={openCart}
-            className="relative p-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            className="relative p-2 text-brand-charcoal hover:text-brand-purple transition-colors"
             aria-label="Open cart"
           >
             <ShoppingBag className="h-5 w-5" />
             {itemCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-rose text-[10px] font-bold text-white">
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-purple text-[10px] font-bold text-white">
                 {itemCount > 9 ? "9+" : itemCount}
               </span>
             )}
@@ -81,7 +81,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="py-2.5 text-sm font-medium text-brand-charcoal hover:text-brand-rose transition-colors"
+              className="py-2.5 text-sm font-medium text-brand-charcoal hover:text-brand-purple transition-colors"
             >
               {link.label}
             </Link>
