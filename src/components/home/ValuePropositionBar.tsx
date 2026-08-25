@@ -1,4 +1,5 @@
 import { Droplets, Eye, Heart, Shield } from "lucide-react";
+import { Reveal } from "../ui/Reveal";
 
 const values = [
   {
@@ -29,22 +30,23 @@ export function ValuePropositionBar() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {values.map((value, index) => (
-            <div
-              key={value.title}
-              className="animate-fade-up flex flex-col items-center text-center lg:items-start lg:text-left"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/15">
-                <value.icon className="h-5 w-5 text-brand-purple" />
+            <Reveal key={value.title} delay={index * 0.1}>
+              <div
+                className="animate-fade-up flex flex-col items-center text-center lg:items-start lg:text-left"
+                style={{ animationDelay: `${index * 80}ms` }}
+              >
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/15">
+                  <value.icon className="h-5 w-5 text-brand-purple" />
+                </div>
+                <h3 className="text-sm font-semibold text-brand-purple">
+                  {value.title}
+                </h3>
+                <p className="mt-1 text-xs text-brand-charcoal/60 leading-relaxed">
+                  {value.description}
+                </p>
               </div>
-              <h3 className="text-sm font-semibold text-brand-purple">
-                {value.title}
-              </h3>
-              <p className="mt-1 text-xs text-brand-charcoal/60 leading-relaxed">
-                {value.description}
-              </p>
-            </div>
-          ))}
+            </Reveal>          
+            ))}
         </div>
       </div>
     </section>

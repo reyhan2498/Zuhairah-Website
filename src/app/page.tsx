@@ -22,19 +22,20 @@ export default async function HomePage() {
     <>
       <HeroSection />
       <ValuePropositionBar />
-
-      <div id="shop" className="scroll-mt-20 divide-y divide-brand-cream-deep/40">
-        {hijab ? (
-          <ProductSpotlight product={hijab} id="hijab" />
-        ) : (
-          <ProductUnavailable name="Performance Workout Hijab" />
-        )}
-        {tunic ? (
-          <ProductSpotlight product={tunic} id="tunic" reverse />
-        ) : (
-          <ProductUnavailable name="Modest Activewear Tunic" />
-        )}
-      </div>
+      <Reveal delay={0.5}>
+        <div id="shop" className="scroll-mt-20 divide-y divide-brand-cream-deep/40">
+          {hijab ? (
+            <ProductSpotlight product={hijab} id="hijab" />
+          ) : (
+            <ProductUnavailable name="Performance Workout Hijab" />
+          )}
+          {tunic ? (
+            <ProductSpotlight product={tunic} id="tunic" reverse />
+          ) : (
+            <ProductUnavailable name="Modest Activewear Tunic" />
+          )}
+        </div>
+      </Reveal>
 
       <Reveal>
         <ModestyFitGuide />
