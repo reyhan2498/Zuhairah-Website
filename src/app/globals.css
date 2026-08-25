@@ -3,6 +3,7 @@
 :root {
   /* Zuhairah brand palette — the ONLY color tokens used across the app */
   --brand-purple: #8d5ca3de;
+  --brand-gold: #D4A373;
   --brand-charcoal: #515155;
   --brand-cream: #fdfbf7;
   --brand-cream-deep: #f3e9dc;
@@ -10,6 +11,7 @@
 
 @theme inline {
   --color-brand-purple: var(--brand-purple);
+  --color-brand-gold: var(--brand-gold);
   --color-brand-charcoal: var(--brand-charcoal);
   --color-brand-cream: var(--brand-cream);
   --color-brand-cream-deep: var(--brand-cream-deep);

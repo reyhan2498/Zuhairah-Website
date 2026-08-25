@@ -37,7 +37,7 @@ export function ValuePropositionBar() {
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/15">
                 <value.icon className="h-5 w-5 text-brand-purple" />
               </div>
-              <h3 className="text-sm font-semibold text-brand-charcoal">
+              <h3 className="text-sm font-semibold text-brand-purple">
                 {value.title}
               </h3>
               <p className="mt-1 text-xs text-brand-charcoal/60 leading-relaxed">
