@@ -1,21 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --brand-purple: #6d28d9;
-  --brand-black: #0f0f12;
-  --brand-white: #ffffff;
-  --brand-white-deep: #f2f0f5;
-  --brand-gold: #d4af37; 
-  --brand-charcoal: #1c1c1e;
-  --brand-cream: #f5f5dc;
+  /* Zuhairah brand palette — the ONLY color tokens used across the app */
+  --brand-rose: #d4a373;
+  --brand-charcoal: #18181b;
+  --brand-cream: #fdfbf7;
+  --brand-cream-deep: #f3e9dc;
 }
 
 @theme inline {
-  --color-brand-purple: var(--brand-purple);
-  --color-brand-black: var(--brand-black);
-  --color-brand-white: var(--brand-white);
-  --color-brand-white-deep: var(--brand-white-deep);
-  --color-brand-gold: var(--brand-gold);
+  --color-brand-rose: var(--brand-rose);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-cream-deep: var(--brand-cream-deep);
   --font-sans: var(--font-manrope), system-ui, sans-serif;
   --font-serif: var(--font-fraunces), Georgia, serif;
 }
@@ -26,12 +23,14 @@ body {
 }
 
 ::selection {
-  background: var(--brand-gold);
-  color: var(--brand-charcoal);
+  background: var(--brand-rose);
+  color: var(--brand-cream);
 }
 
 @keyframes marquee {
-  to { transform: translateX(-50%); }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -41,8 +40,8 @@ body {
 /* -----------------------------------------------------------
    Lightweight, GPU-friendly entrance animations for the
    homepage. Pure CSS so above-the-fold sections (Hero, value
-   props, featured grid) can stay Server Components with no
-   hydration flash and no client-side JS cost.
+   props, product spotlights) can stay Server Components with
+   no hydration flash and no client-side JS cost.
    ----------------------------------------------------------- */
 @keyframes fade-up {
   from {

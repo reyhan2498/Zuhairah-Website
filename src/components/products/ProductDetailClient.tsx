@@ -87,8 +87,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       title: "Modesty & Opacity Rating",
       content: (
         <div className="space-y-3 text-sm text-brand-charcoal/70">
-          <div className="rounded-lg bg-brand-terracotta/5 p-3">
-            <p className="text-xs uppercase tracking-wider text-brand-terracotta font-semibold mb-1">
+          <div className="rounded-lg bg-brand-rose/5 p-3">
+            <p className="text-xs uppercase tracking-wider text-brand-rose font-semibold mb-1">
               Opacity Rating
             </p>
             <p className="font-medium text-brand-charcoal">{product.opacity_rating}</p>
@@ -151,7 +151,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <h1 className="mt-2 text-2xl sm:text-3xl font-serif font-semibold text-brand-charcoal">
             {product.title}
           </h1>
-          <p className="mt-3 text-2xl font-semibold text-brand-terracotta">
+          <p className="mt-3 text-2xl font-semibold text-brand-rose">
             {formatPrice(Number(product.base_price))}
           </p>
           <p className="mt-4 text-sm text-brand-charcoal/70 leading-relaxed">
@@ -176,7 +176,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     className={cn(
                       "h-8 w-8 rounded-full border-2 transition-all",
                       selectedColor === color.color_name
-                        ? "border-brand-terracotta scale-110"
+                        ? "border-brand-rose scale-110"
                         : "border-brand-cream-deep hover:border-brand-charcoal/30"
                     )}
                     style={{ backgroundColor: color.color_hex }}
@@ -206,9 +206,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       className={cn(
                         "min-w-[48px] rounded-md border px-3 py-2 text-xs font-medium transition-colors",
                         selectedSize === size
-                          ? "border-brand-terracotta bg-brand-terracotta text-brand-cream"
+                          ? "border-brand-rose bg-brand-rose text-brand-cream"
                           : isAvailable
-                            ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-terracotta"
+                            ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-rose"
                             : "border-brand-cream-deep/40 text-brand-charcoal/30 cursor-not-allowed line-through"
                       )}
                     >
@@ -253,7 +253,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             type="button"
             onClick={handleAddToCart}
             disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-            className="hidden lg:flex mt-8 w-full items-center justify-center gap-2 rounded-lg bg-brand-terracotta py-4 text-sm font-semibold text-brand-cream hover:bg-brand-terracotta/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="hidden lg:flex mt-8 w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-4 text-sm font-semibold text-brand-cream hover:bg-brand-rose/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ShoppingBag className="h-4 w-4" />
             {!selectedVariant
@@ -299,7 +299,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           type="button"
           onClick={handleAddToCart}
           disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-terracotta py-3.5 text-sm font-semibold text-brand-cream hover:bg-brand-terracotta/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-3.5 text-sm font-semibold text-brand-cream hover:bg-brand-rose/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ShoppingBag className="h-4 w-4" />
           {!selectedVariant

@@ -2,23 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Shop All", href: "/shop" },
-  { label: "Sports Hijabs", href: "/shop/sports-hijabs" },
-  { label: "Active Tops", href: "/shop/active-tops" },
-  { label: "Bottoms", href: "/shop/bottoms" },
-  { label: "Our Mission", href: "/mission" },
+  { label: "The Hijab", href: "#hijab" },
+  { label: "The Tunic", href: "#tunic" },
+  { label: "Our Promise", href: "#story" },
 ];
 
 export function Navbar() {
   const { itemCount, openCart } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-charcoal/10 bg-white/95 backdrop-blur-sm">
@@ -27,7 +23,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-terracotta transition-colors"
+            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-rose transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -48,64 +44,27 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[11px] font-semibold uppercase text-brand-charcoal/80 hover:text-brand-terracotta transition-colors tracking-[0.14em]"
+                className="text-[11px] font-semibold uppercase text-brand-charcoal/80 hover:text-brand-rose transition-colors tracking-[0.14em]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            <button
-              type="button"
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 text-brand-charcoal hover:text-brand-terracotta transition-colors"
-              aria-label="Search"
-            >
-              <Search className="h-5 w-5" />
-            </button>
-            <Link
-              href="/wishlist"
-              className="p-2 text-brand-charcoal hover:text-brand-terracotta transition-colors hidden sm:block"
-              aria-label="Wishlist"
-            >
-              <Heart className="h-5 w-5" />
-            </Link>
-            <button
-              type="button"
-              onClick={openCart}
-              className="relative p-2 text-brand-charcoal hover:text-brand-terracotta transition-colors"
-              aria-label="Open cart"
-            >
-              <ShoppingBag className="h-5 w-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-terracotta text-[10px] font-bold text-brand-cream">
-                  {itemCount > 9 ? "9+" : itemCount}
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Search bar */}
-        <div
-          className={cn(
-            "overflow-hidden transition-all duration-300",
-            searchOpen ? "max-h-14 pb-3" : "max-h-0"
-          )}
-        >
-          <form action="/shop" method="get" className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-charcoal/40" />
-            <input
-              type="search"
-              name="q"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search products..."
-              className="w-full rounded-lg border border-brand-cream-deep bg-white py-2.5 pl-10 pr-4 text-sm text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-terracotta/30"
-            />
-          </form>
+          {/* Cart */}
+          <button
+            type="button"
+            onClick={openCart}
+            className="relative p-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            aria-label="Open cart"
+          >
+            <ShoppingBag className="h-5 w-5" />
+            {itemCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-rose text-[10px] font-bold text-white">
+                {itemCount > 9 ? "9+" : itemCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
 
@@ -122,7 +81,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="py-2.5 text-sm font-medium text-brand-charcoal hover:text-brand-terracotta transition-colors"
+              className="py-2.5 text-sm font-medium text-brand-charcoal hover:text-brand-rose transition-colors"
             >
               {link.label}
             </Link>

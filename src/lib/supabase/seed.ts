@@ -19,7 +19,6 @@ const supabase = createClient(supabaseUrl, serviceRoleKey);
 const categories = [
   { name: "Sports Hijabs", slug: "sports-hijabs" },
   { name: "Active Tops", slug: "active-tops" },
-  { name: "Leggings & Skirts", slug: "bottoms" },
 ];
 
 const products = [
@@ -87,41 +86,6 @@ const products = [
       { sku: "BLAT-M-SG", size: "M", color_name: "Sage Green", color_hex: "#1b3b36", stock_quantity: 30 },
       { sku: "BLAT-L-SG", size: "L", color_name: "Sage Green", color_hex: "#1b3b36", stock_quantity: 28 },
       { sku: "BLAT-M-SD", size: "M", color_name: "Sand Dune", color_hex: "#e2d7c5", stock_quantity: 22 },
-    ],
-  },
-  {
-    title: "FlexGuard Squat-Proof Athletic Legging with Skirt Overlay",
-    slug: "flexguard-squat-proof-legging-skirt",
-    categorySlug: "bottoms",
-    description:
-      "Train with confidence in our FlexGuard Leggings. An integrated modest coverage skirt overlay provides elegant coverage while the squat-proof inner legging delivers 100% opacity. High-rise waistband with hidden pocket included.",
-    features: [
-      "Integrated modest skirt overlay",
-      "100% squat-proof inner legging",
-      "High-rise waistband with tummy control",
-      "Hidden waistband pocket for essentials",
-      "Four-way stretch for full mobility",
-    ],
-    opacity_rating: "100% Squat-Proof — Zero Show-Through",
-    coverage_level: "Full Leg Coverage with Skirt Overlay",
-    fabric_details:
-      "Breathability Index: 8/10 | Moisture-Wicking: High Performance | Fabric: 77% Nylon, 23% Spandex | Compression Level: Medium",
-    base_price: 72.99,
-    images: [
-      "https://images.unsplash.com/photo-1506629082955-511b2f638c84?w=800&q=80",
-      "https://images.unsplash.com/photo-1594381898411-8465977a25ad?w=800&q=80",
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
-    ],
-    is_featured: true,
-    variants: [
-      { sku: "FGSL-XS-OB", size: "XS", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 18 },
-      { sku: "FGSL-S-OB", size: "S", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 30 },
-      { sku: "FGSL-M-OB", size: "M", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 40 },
-      { sku: "FGSL-L-OB", size: "L", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 35 },
-      { sku: "FGSL-XL-OB", size: "XL", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 22 },
-      { sku: "FGSL-M-SG", size: "M", color_name: "Sage Green", color_hex: "#1b3b36", stock_quantity: 25 },
-      { sku: "FGSL-L-SG", size: "L", color_name: "Sage Green", color_hex: "#1b3b36", stock_quantity: 20 },
-      { sku: "FGSL-M-DR", size: "M", color_name: "Deep Rose", color_hex: "#C86D51", stock_quantity: 15 },
     ],
   },
 ];

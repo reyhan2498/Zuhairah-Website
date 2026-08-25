@@ -88,7 +88,7 @@ export function CartDrawer() {
             {/* Header */}
             <div className="flex items-center justify-between border-b border-brand-cream-deep/40 px-6 py-4">
               <div className="flex items-center gap-2">
-                <ShoppingBag className="h-5 w-5 text-brand-terracotta" />
+                <ShoppingBag className="h-5 w-5 text-brand-rose" />
                 <h2 className="text-lg font-semibold text-brand-charcoal">
                   Your Cart ({itemCount})
                 </h2>
@@ -111,13 +111,13 @@ export function CartDrawer() {
                     Add {formatPrice(amountToFreeShipping)} more for free shipping
                   </p>
                 ) : (
-                  <p className="text-xs text-brand-terracotta font-medium mb-2">
+                  <p className="text-xs text-brand-rose font-medium mb-2">
                     You qualify for free shipping!
                   </p>
                 )}
                 <div className="h-1.5 rounded-full bg-brand-cream-deep/60 overflow-hidden">
                   <motion.div
-                    className="h-full rounded-full bg-brand-terracotta"
+                    className="h-full rounded-full bg-brand-rose"
                     initial={false}
                     animate={{ width: `${shippingProgress}%` }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
@@ -133,9 +133,9 @@ export function CartDrawer() {
                   <ShoppingBag className="h-12 w-12 text-brand-cream-deep mb-4" />
                   <p className="text-brand-charcoal/60 text-sm">Your cart is empty</p>
                   <Link
-                    href="/shop"
+                    href="/#shop"
                     onClick={closeCart}
-                    className="mt-4 text-sm font-medium text-brand-terracotta hover:underline"
+                    className="mt-4 text-sm font-medium text-brand-rose hover:underline"
                   >
                     Continue Shopping
                   </Link>
@@ -166,14 +166,14 @@ export function CartDrawer() {
                           <Link
                             href={`/products/${item.slug}`}
                             onClick={closeCart}
-                            className="text-sm font-medium text-brand-charcoal hover:text-brand-terracotta line-clamp-2"
+                            className="text-sm font-medium text-brand-charcoal hover:text-brand-rose line-clamp-2"
                           >
                             {item.title}
                           </Link>
                           <p className="text-xs text-brand-charcoal/60 mt-0.5">
                             {item.colorName} / {item.size}
                           </p>
-                          <p className="text-sm font-semibold text-brand-terracotta mt-1">
+                          <p className="text-sm font-semibold text-brand-rose mt-1">
                             {formatPrice(item.price)}
                           </p>
                           <div className="flex items-center justify-between mt-2">
@@ -235,7 +235,7 @@ export function CartDrawer() {
                   type="button"
                   onClick={handleCheckout}
                   disabled={isCheckingOut}
-                  className="w-full rounded-lg bg-brand-terracotta py-3.5 text-sm font-semibold text-brand-cream transition-all duration-300 hover:bg-brand-terracotta/90 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full rounded-lg bg-brand-rose py-3.5 text-sm font-semibold text-brand-cream transition-all duration-300 hover:bg-brand-rose/90 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isCheckingOut ? "Processing..." : "Proceed to Checkout"}
                 </button>

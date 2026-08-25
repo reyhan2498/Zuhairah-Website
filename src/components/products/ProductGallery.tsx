@@ -35,7 +35,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
               className={cn(
                 "relative h-16 w-14 shrink-0 overflow-hidden rounded-md border-2 transition-colors",
                 activeIndex === index
-                  ? "border-brand-terracotta"
+                  ? "border-brand-rose"
                   : "border-transparent hover:border-brand-cream-deep"
               )}
             >

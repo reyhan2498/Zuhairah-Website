@@ -18,9 +18,8 @@ export function Footer() {
               Shop
             </p>
             <ul className="space-y-2 text-xs">
-              <li><Link href="/shop/sports-hijabs" className="hover:text-brand-cream transition-colors">Sports Hijabs</Link></li>
-              <li><Link href="/shop/active-tops" className="hover:text-brand-cream transition-colors">Active Tops</Link></li>
-              <li><Link href="/shop/bottoms" className="hover:text-brand-cream transition-colors">Bottoms</Link></li>
+              <li><Link href="/#hijab" className="hover:text-brand-cream transition-colors">Performance Workout Hijab</Link></li>
+              <li><Link href="/#tunic" className="hover:text-brand-cream transition-colors">Modest Activewear Tunic</Link></li>
             </ul>
           </div>
           <div>
@@ -28,7 +27,7 @@ export function Footer() {
               Support
             </p>
             <ul className="space-y-2 text-xs">
-              <li><Link href="/mission" className="hover:text-brand-cream transition-colors">Our Mission</Link></li>
+              <li><Link href="/#story" className="hover:text-brand-cream transition-colors">Our Promise</Link></li>
               <li><span>Shipping & Returns</span></li>
               <li><span>Size Guide</span></li>
             </ul>
