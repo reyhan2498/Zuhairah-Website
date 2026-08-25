@@ -35,7 +35,7 @@ export function HeroSection() {
               className="animate-fade-up font-serif text-5xl font-normal leading-[0.95] text-brand-charcoal sm:text-6xl lg:text-7xl"
               style={{ animationDelay: "80ms" }}
             >
-              Move freely. <span className="text-brand-gold">Cover beautifully.</span>
+              Move freely. <span className="text-brand-purple/80">Cover beautifully.</span>
             </h1>
             <p
               className="animate-fade-up mt-6 max-w-md text-base leading-relaxed text-brand-charcoal/75 sm:text-lg"
@@ -50,7 +50,7 @@ export function HeroSection() {
             >
               <Link
                 href="#shop"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-charcoal/90"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-purple/80 px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-charcoal/90"
               >
                 Shop the edit
                 <ArrowRight className="h-4 w-4" />
