@@ -1,4 +1,5 @@
 import { Heart, Leaf, Shield, Sparkles } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const pillars = [
   {
@@ -46,21 +47,23 @@ export function BrandStory() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="rounded-xl border border-brand-cream-deep bg-white p-6"
-            >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10">
-                <pillar.icon className="h-5 w-5 text-brand-purple" />
+          {pillars.map((pillar, index) => (
+            <Reveal key={pillar.title} delay={index * 0.1}>
+              <div
+                key={pillar.title}
+                className="rounded-xl border border-brand-cream-deep bg-white p-6"
+              >
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10">
+                  <pillar.icon className="h-5 w-5 text-brand-purple" />
+                </div>
+                <h3 className="mb-2 text-base font-semibold text-brand-charcoal">
+                  {pillar.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-brand-charcoal/70">
+                  {pillar.description}
+                </p>
               </div>
-              <h3 className="mb-2 text-base font-semibold text-brand-charcoal">
-                {pillar.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-brand-charcoal/70">
-                {pillar.description}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
