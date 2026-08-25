@@ -4,6 +4,7 @@ import { ModestyFitGuide } from "@/components/home/ModestyFitGuide";
 import { BrandStory } from "@/components/home/BrandStory";
 import { ProductSpotlight } from "@/components/products/ProductSpotlight";
 import { getProductBySlug } from "@/lib/supabase/queries";
+import { Reveal } from "@/components/ui/Reveal";
 
 // The only 2 products Zuhairah sells. Update these two slugs if the
 // underlying Supabase rows ever change — everything else on this page
@@ -35,8 +36,12 @@ export default async function HomePage() {
         )}
       </div>
 
-      <ModestyFitGuide />
-      <BrandStory />
+      <Reveal>
+        <ModestyFitGuide />
+      </Reveal>
+      <Reveal delay={0.5}>
+        <BrandStory />
+      </Reveal>
     </>
   );
 }
