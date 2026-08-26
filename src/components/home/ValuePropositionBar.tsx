@@ -27,7 +27,7 @@ const values = [
 export function ValuePropositionBar() {
   return (
     <section className="border-y border-brand-charcoal/10 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="px-6 sm:px-10 lg:px-16 py-12 lg:py-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {values.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.1}>

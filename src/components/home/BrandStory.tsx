@@ -31,7 +31,7 @@ const pillars = [
 export function BrandStory() {
   return (
     <section id="story" className="scroll-mt-20 bg-brand-cream-deep/30 py-16 sm:py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <p className="mb-2 text-xs uppercase tracking-[0.2em] text-brand-charcoal/50">
             Our Promise

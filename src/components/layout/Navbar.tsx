@@ -18,7 +18,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-purple/10 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="px-6 sm:px-10 lg:px-16">
         <div className="grid h-20 grid-cols-3 items-center gap-4">
           {/* Left: mobile menu button (mobile) / product links (desktop) */}
           <div className="flex items-center gap-8 justify-self-start">

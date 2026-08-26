@@ -12,7 +12,7 @@ export function Footer() {
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative px-6 sm:px-10 lg:px-16">
           {/* Top: brand + newsletter */}
           <div className="flex flex-col items-start justify-between gap-8 border-b border-brand-cream/15 py-14 lg:flex-row lg:items-end">
             <div>
