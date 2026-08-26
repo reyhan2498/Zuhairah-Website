@@ -17,14 +17,14 @@ export function HeroSection() {
 
       {/* Legibility gradient so the text reads cleanly over the photo */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-brand-cream/50 via-brand-cream/20 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-brand-cream/20 via-brand-cream/10 to-transparent sm:bg-gradient-to-r sm:from-brand-cream/60 sm:via-brand-cream/30 sm:to-transparent"
         aria-hidden="true"
       />
 
       {/* Text content */}
       <div className="relative z-10 flex h-full min-h-[520px] items-center sm:min-h-[600px] lg:min-h-[80vh]">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 lg:px-16 xl:px-24">
-          <div className="max-w-xl">
+          <div className="max-w-xl rounded-3xl bg-brand-cream/20 p-6 backdrop-blur-md sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
             <p
               className="animate-fade-up mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-brand-charcoal/70"
               style={{ animationDelay: "0ms" }}

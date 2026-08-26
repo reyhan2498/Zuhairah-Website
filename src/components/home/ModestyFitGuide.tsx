@@ -6,7 +6,7 @@ const ratings = [
     icon: Wind,
     label: "Breathability",
     levels: [
-      { name: "Standard", desc: "Light activity, everyday wear", score: "6-7/10" },
+      { name: "Standard", desc: "Light activity, everyday wear", score: "8-9/10" },
       { name: "Performance", desc: "Gym, running, HIIT workouts", score: "8-9/10" },
       { name: "Pro", desc: "Competition & endurance training", score: "10/10" },
     ],
