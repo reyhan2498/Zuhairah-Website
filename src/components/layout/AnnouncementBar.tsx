@@ -1,12 +1,17 @@
 export function AnnouncementBar() {
-  const messages = ["Free shipping on orders over $75", "Made to move. Made to cover.", "Modest activewear, made joyful."];
+  const messages = ["Free shipping on orders over $75", "Made to move. Made to cover.", "Modest activewear, made joyful.","ETHICALLY MADE IN NEW ZEALAND."];
+  const items = [...messages, ...messages];
 
   return (
-    <div className="overflow-hidden bg-brand-purple text-brand-cream text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em]">
-      <div className="flex min-w-max animate-marquee items-center gap-10 py-2.5">
-        {[...messages, ...messages].map((message, index) => (
-          <span key={`${message}-${index}`} className="inline-flex items-center gap-10">
-            {message}<span aria-hidden="true">✦</span>
+    <div className="bg-brand-purple overflow-hidden py-2.5">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {items.map((msg, i) => (
+          <span
+            key={i}
+            className="text-brand-cream text-[12px] font-medium tracking-[0.22em] uppercase mx-5"
+          >
+            {msg}
+            <span className="text-brand-cream mx-5">✦</span>
           </span>
         ))}
       </div>
