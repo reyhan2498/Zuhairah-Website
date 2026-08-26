@@ -29,6 +29,10 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
   );
 
   const [selectedColor, setSelectedColor] = useState(colors[0]?.color_name ?? "");
+  const activeColorImage = colors.find((c) => c.color_name === selectedColor)?.image_url;
+  const galleryImages = activeColorImage
+    ? [activeColorImage, ...product.images.filter((img) => img !== activeColorImage)]
+    : product.images;
   const [selectedSize, setSelectedSize] = useState("");
   const [justAdded, setJustAdded] = useState(false);
 
@@ -53,7 +57,7 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
         colorName: selectedVariant.color_name,
         colorHex: selectedVariant.color_hex,
         price: Number(product.base_price),
-        image: product.images[0] ?? "",
+        image: activeColorImage ?? product.images[0] ?? "",
         sku: selectedVariant.sku,
       },
       1
@@ -72,7 +76,7 @@ export function ProductSpotlight({ product, id, reverse }: ProductSpotlightProps
             reverse && "lg:[&>*:first-child]:order-2"
           )}
         >
-          <ProductGallery images={product.images} title={product.title} />
+          <ProductGallery  key={selectedColor} images={galleryImages} title={`${product.title} — ${selectedColor}`} />
 
           <div className="flex flex-col justify-center">
             <p className="text-xs uppercase tracking-[0.2em] text-brand-charcoal/50">

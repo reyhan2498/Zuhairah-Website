@@ -47,10 +47,10 @@ const products = [
     ],
     is_featured: true,
     variants: [
-      { sku: "PPFH-OS-OB", size: "One-Size", color_name: "Onyx Black", color_hex: "#1c1c1c", stock_quantity: 45 },
-      { sku: "PPFH-OS-SG", size: "One-Size", color_name: "Sage Green", color_hex: "#1b3b36", stock_quantity: 38 },
-      { sku: "PPFH-OS-ND", size: "One-Size", color_name: "Sand Dune", color_hex: "#e2d7c5", stock_quantity: 32 },
-      { sku: "PPFH-OS-DR", size: "One-Size", color_name: "Deep Rose", color_hex: "#C86D51", stock_quantity: 28 },
+      { sku: "PPFH-OS-OB", size: "One-Size", color_name: "Onyx Black", color_hex: "#1c1c1c", image_url: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=80", stock_quantity: 45 },
+      { sku: "PPFH-OS-SG", size: "One-Size", color_name: "Sage Green", color_hex: "#1b3b36", image_url: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80", stock_quantity: 38 },
+      { sku: "PPFH-OS-ND", size: "One-Size", color_name: "Sand Dune", color_hex: "#e2d7c5", image_url: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80", stock_quantity: 32 },
+      { sku: "PPFH-OS-DR", size: "One-Size", color_name: "Deep Rose", color_hex: "#C86D51", image_url: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=80", stock_quantity: 28 },
     ],
   },
   {

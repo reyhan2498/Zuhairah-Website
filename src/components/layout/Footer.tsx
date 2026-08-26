@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="relative mt-auto overflow-hidden rounded-t-[2.5rem] bg-brand-purple text-brand-cream-deep/80">
       {/* Depth overlay so the color isn't flat */}
-      <Reveal delay={0.8}>
+      <Reveal delay={0.3}>
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,_rgba(255,255,255,0.15)_0%,_transparent_45%),radial-gradient(circle_at_85%_100%,_rgba(0,0,0,0.25)_0%,_transparent_55%)]"
           aria-hidden="true"

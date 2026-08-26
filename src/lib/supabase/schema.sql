@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS product_variants (
   size TEXT NOT NULL,
   color_name TEXT NOT NULL,
   color_hex TEXT NOT NULL,
+  image_url TEXT,
   stock_quantity INTEGER NOT NULL DEFAULT 0,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

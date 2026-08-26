@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Minus, Plus, ShoppingBag } from "lucide-react";
+import { Check, ChevronDown, Minus, Plus, RotateCcw, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { useCart } from "@/context/CartContext";
 import { cn, formatPrice, parseFabricSpecs } from "@/lib/utils";
@@ -26,6 +26,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   );
 
   const [selectedColor, setSelectedColor] = useState(colors[0]?.color_name ?? "");
+  const activeColorImage = colors.find((c) => c.color_name === selectedColor)?.image_url;
+  const galleryImages = activeColorImage
+    ? [activeColorImage, ...product.images.filter((img) => img !== activeColorImage)]
+    : product.images;
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [openAccordion, setOpenAccordion] = useState<string>("fabric");
@@ -54,7 +58,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         colorName: selectedVariant.color_name,
         colorHex: selectedVariant.color_hex,
         price: Number(product.base_price),
-        image: product.images[0] ?? "",
+        image: activeColorImage ?? product.images[0] ?? "",
         sku: selectedVariant.sku,
       },
       quantity
@@ -142,7 +146,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 pb-24 lg:pb-0">
-        <ProductGallery images={product.images} title={product.title} />
+        <ProductGallery key={selectedColor} images={galleryImages} title={`${product.title} — ${selectedColor}`} />
 
         <div className="flex flex-col">
           <p className="text-xs uppercase tracking-[0.2em] text-brand-charcoal/50">
@@ -157,6 +161,14 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <p className="mt-4 text-sm text-brand-charcoal/70 leading-relaxed">
             {product.description}
           </p>
+          <ul className="mt-5 space-y-2">
+            {(product.features as string[]).slice(0, 3).map((feature) => (
+              <li key={feature} className="flex items-start gap-2 text-sm text-brand-charcoal/80">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-rose" />
+                {feature}
+              </li>
+            ))}
+          </ul>
 
           {/* Color selector */}
           {colors.length > 0 && (
@@ -191,32 +203,39 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           {/* Size selector */}
           {sizes.length > 0 && (
             <div className="mt-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand-charcoal mb-3">
+              <label htmlFor="size-select" className="mb-3 block text-xs font-semibold uppercase tracking-wider text-brand-charcoal">
                 Size
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {sizes.map((size) => {
-                  const isAvailable = availableSizesForColor.includes(size);
-                  return (
-                    <button
-                      key={size}
-                      type="button"
-                      disabled={!isAvailable}
-                      onClick={() => setSelectedSize(size)}
-                      className={cn(
-                        "min-w-[48px] rounded-md border px-3 py-2 text-xs font-medium transition-colors",
-                        selectedSize === size
-                          ? "border-brand-rose bg-brand-rose text-brand-cream"
-                          : isAvailable
-                            ? "border-brand-cream-deep text-brand-charcoal hover:border-brand-rose"
-                            : "border-brand-cream-deep/40 text-brand-charcoal/30 cursor-not-allowed line-through"
-                      )}
-                    >
-                      {size}
-                    </button>
-                  );
-                })}
+              </label>
+              <div className="relative">
+                <select
+                  id="size-select"
+                  value={selectedSize}
+                  onChange={(e) => setSelectedSize(e.target.value)}
+                  className="w-full appearance-none rounded-lg border border-brand-cream-deep bg-white px-4 py-3.5 pr-10 text-sm font-medium text-brand-charcoal outline-none transition-colors focus:border-brand-rose"
+                >
+                  <option value="" disabled>Select a size</option>
+                  {sizes.map((size) => {
+                    const isAvailable = availableSizesForColor.includes(size);
+                    return (
+                      <option key={size} value={size} disabled={!isAvailable}>
+                        {size}{!isAvailable ? " — Out of stock" : ""}
+                      </option>
+                    );
+                  })}
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-charcoal/40" />
               </div>
+                
+              {selectedVariant && selectedVariant.stock_quantity > 0 && (
+                <p className="mt-2 text-xs text-brand-charcoal/40">
+                  SKU: {selectedVariant.sku}
+                  {selectedVariant.stock_quantity <= 8 && (
+                    <span className="ml-2 font-medium text-brand-rose">
+                      Only {selectedVariant.stock_quantity} left
+                    </span>
+                  )}
+                </p>
+              )}
             </div>
           )}
 
