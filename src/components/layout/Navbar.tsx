@@ -2,73 +2,64 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, ShoppingBag, X } from "lucide-react";
-import { useCart } from "@/context/CartContext";
+import { Mail, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "The Hijab", href: "#hijab" },
-  { label: "The Tunic", href: "#tunic" },
-  { label: "Our Promise", href: "#story" },
+  { label: "The Hijab", href: "/hijab" },
+  { label: "The Tunic", href: "/tunic" },
+  { label: "Our Promise", href: "/#story" },
 ];
 
 export function Navbar() {
-  const { itemCount, openCart } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-purple/10 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-brand-charcoal/10 bg-white/95 backdrop-blur-sm">
       <div className="px-6 sm:px-10 lg:px-16">
-        <div className="grid h-20 grid-cols-3 items-center gap-4">
-          {/* Left: mobile menu button (mobile) / product links (desktop) */}
-          <div className="flex items-center gap-8 justify-self-start">
-            <button
-              type="button"
-              className="lg:hidden p-2 -ml-2 text-brand-purple hover:text-brand-purple/80 transition-colors"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+        <div className="flex h-16 items-center justify-between gap-4">
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
 
-            <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-semibold uppercase text-brand-purple hover:text-brand-purple/80 transition-colors tracking-[0.14em]"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-            
-          {/* Center: logo */}
+          {/* Logo */}
           <Link
             href="/"
-            className="justify-self-center font-serif text-3xl sm:text-4xl font-semibold tracking-[0.06em] text-brand-purple"
+            className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-rose shrink-0"
           >
             ZUHAIRAH
           </Link>
-            
-          {/* Right: cart */}
-          <button
-            type="button"
-            onClick={openCart}
-            className="relative justify-self-end p-2 text-brand-purple hover:text-brand-purple/80 transition-colors"
-            aria-label="Open cart"
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="relative text-[11px] font-semibold uppercase text-brand-charcoal/80 tracking-[0.14em] transition-colors hover:text-brand-rose after:absolute after:-bottom-1 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-rose after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Contact — cart/checkout is disabled, customers enquire by email */}
+          <a
+            href="mailto:hello@zuhairah.com"
+            className="p-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            aria-label="Email us"
           >
-            <ShoppingBag className="h-6 w-6" />
-            {itemCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-rose text-[10px] font-bold text-white">
-                {itemCount > 9 ? "9+" : itemCount}
-              </span>
-            )}
-          </button>
+            <Mail className="h-5 w-5" />
+          </a>
         </div>
       </div>
-          
+
       {/* Mobile nav drawer */}
       <div
         className={cn(
@@ -82,7 +73,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="py-2.5 text-base font-medium text-brand-purple hover:text-brand-purple/80 transition-colors"
+              className="py-2.5 text-sm font-medium text-brand-charcoal hover:text-brand-rose transition-colors"
             >
               {link.label}
             </Link>

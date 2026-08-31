@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronDown, Minus, Plus, RotateCcw, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
+import { Check, ChevronDown, Mail, Minus, Plus, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { ProductGallery } from "@/components/products/ProductGallery";
-import { useCart } from "@/context/CartContext";
 import { cn, formatPrice, parseFabricSpecs } from "@/lib/utils";
 import type { ProductVariant, ProductWithVariants } from "@/types/database";
 
@@ -14,7 +13,6 @@ interface ProductDetailClientProps {
 const SIZES_ORDER = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "One-Size"];
 
 export function ProductDetailClient({ product }: ProductDetailClientProps) {
-  const { addItem } = useCart();
   const variants = product.product_variants ?? [];
 
   const colors = Array.from(
@@ -26,13 +24,14 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   );
 
   const [selectedColor, setSelectedColor] = useState(colors[0]?.color_name ?? "");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [openAccordion, setOpenAccordion] = useState<string>("fabric");
+
   const activeColorImage = colors.find((c) => c.color_name === selectedColor)?.image_url;
   const galleryImages = activeColorImage
     ? [activeColorImage, ...product.images.filter((img) => img !== activeColorImage)]
     : product.images;
-  const [selectedSize, setSelectedSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [openAccordion, setOpenAccordion] = useState<string>("fabric");
 
   const availableSizesForColor = variants
     .filter((v) => v.color_name === selectedColor && v.stock_quantity > 0)
@@ -45,25 +44,17 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   const fabricSpecs = parseFabricSpecs(product.fabric_details);
   const isHijab = product.categories?.slug === "sports-hijabs";
 
-  function handleAddToCart() {
-    if (!selectedVariant) return;
+  // Cart/checkout is disabled for now — customers enquire by email instead.
+  // Swap this address for your real contact inbox.
+  const CONTACT_EMAIL = "hello@zuhairah.com";
 
-    addItem(
-      {
-        variantId: selectedVariant.id,
-        productId: product.id,
-        title: product.title,
-        slug: product.slug,
-        size: selectedVariant.size,
-        colorName: selectedVariant.color_name,
-        colorHex: selectedVariant.color_hex,
-        price: Number(product.base_price),
-        image: activeColorImage ?? product.images[0] ?? "",
-        sku: selectedVariant.sku,
-      },
-      quantity
-    );
-  }
+  const mailtoHref = selectedVariant
+    ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+        `Order Enquiry — ${product.title}`
+      )}&body=${encodeURIComponent(
+        `Hi Zuhairah team,\n\nI'd like to order:\n\nProduct: ${product.title}\nColor: ${selectedVariant.color_name}\nSize: ${selectedVariant.size}\nQuantity: ${quantity}\nSKU: ${selectedVariant.sku}\n\nPlease let me know how to proceed with payment and delivery.\n\nThanks!`
+      )}`
+    : undefined;
 
   const accordions = [
     {
@@ -161,6 +152,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           <p className="mt-4 text-sm text-brand-charcoal/70 leading-relaxed">
             {product.description}
           </p>
+
+          {/* Quick highlights */}
           <ul className="mt-5 space-y-2">
             {(product.features as string[]).slice(0, 3).map((feature) => (
               <li key={feature} className="flex items-start gap-2 text-sm text-brand-charcoal/80">
@@ -200,10 +193,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </div>
           )}
 
-          {/* Size selector */}
+          {/* Size selector — dropdown */}
           {sizes.length > 0 && (
             <div className="mt-6">
-              <label htmlFor="size-select" className="mb-3 block text-xs font-semibold uppercase tracking-wider text-brand-charcoal">
+              <label
+                htmlFor="size-select"
+                className="mb-3 block text-xs font-semibold uppercase tracking-wider text-brand-charcoal"
+              >
                 Size
               </label>
               <div className="relative">
@@ -213,19 +209,22 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   onChange={(e) => setSelectedSize(e.target.value)}
                   className="w-full appearance-none rounded-lg border border-brand-cream-deep bg-white px-4 py-3.5 pr-10 text-sm font-medium text-brand-charcoal outline-none transition-colors focus:border-brand-rose"
                 >
-                  <option value="" disabled>Select a size</option>
+                  <option value="" disabled>
+                    Select a size
+                  </option>
                   {sizes.map((size) => {
                     const isAvailable = availableSizesForColor.includes(size);
                     return (
                       <option key={size} value={size} disabled={!isAvailable}>
-                        {size}{!isAvailable ? " — Out of stock" : ""}
+                        {size}
+                        {!isAvailable ? " — Out of stock" : ""}
                       </option>
                     );
                   })}
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-charcoal/40" />
               </div>
-                
+
               {selectedVariant && selectedVariant.stock_quantity > 0 && (
                 <p className="mt-2 text-xs text-brand-charcoal/40">
                   SKU: {selectedVariant.sku}
@@ -267,20 +266,47 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </div>
           </div>
 
-          {/* Desktop add to cart */}
-          <button
-            type="button"
-            onClick={handleAddToCart}
-            disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-            className="hidden lg:flex mt-8 w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-4 text-sm font-semibold text-brand-cream hover:bg-brand-rose/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ShoppingBag className="h-4 w-4" />
-            {!selectedVariant
-              ? "Select a Size"
-              : selectedVariant.stock_quantity <= 0
-                ? "Out of Stock"
-                : "Add to Zuhairah Cart"}
-          </button>
+          {/* Trust badges */}
+          <div className="mt-8 grid grid-cols-3 gap-3 border-y border-brand-cream-deep/40 py-5">
+            <div className="flex flex-col items-center gap-1.5 text-center">
+              <ShieldCheck className="h-5 w-5 text-brand-rose" />
+              <p className="text-[11px] leading-tight text-brand-charcoal/70">
+                Secure Checkout
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-1.5 text-center">
+              <Truck className="h-5 w-5 text-brand-rose" />
+              <p className="text-[11px] leading-tight text-brand-charcoal/70">
+                Free Shipping $75+
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-1.5 text-center">
+              <RotateCcw className="h-5 w-5 text-brand-rose" />
+              <p className="text-[11px] leading-tight text-brand-charcoal/70">
+                30-Day Returns
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop email-to-order */}
+          {selectedVariant ? (
+            <a
+              href={mailtoHref}
+              className="hidden lg:flex mt-6 w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-4 text-sm font-semibold text-brand-cream transition-colors hover:bg-brand-rose/90"
+            >
+              <Mail className="h-4 w-4" />
+              Email to Order
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              className="hidden lg:flex mt-6 w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-brand-rose py-4 text-sm font-semibold text-brand-cream opacity-50"
+            >
+              <Mail className="h-4 w-4" />
+              Select a Size
+            </button>
+          )}
 
           {/* Accordions */}
           <div className="mt-8 divide-y divide-brand-cream-deep/40 border-t border-brand-cream-deep/40">
@@ -312,21 +338,26 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         </div>
       </div>
 
-      {/* Sticky mobile add to cart */}
+      {/* Sticky mobile email-to-order */}
       <div className="fixed bottom-0 inset-x-0 z-30 lg:hidden bg-brand-cream border-t border-brand-cream-deep/40 p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-        <button
-          type="button"
-          onClick={handleAddToCart}
-          disabled={!selectedVariant || selectedVariant.stock_quantity <= 0}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-3.5 text-sm font-semibold text-brand-cream hover:bg-brand-rose/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <ShoppingBag className="h-4 w-4" />
-          {!selectedVariant
-            ? "Select a Size"
-            : selectedVariant.stock_quantity <= 0
-              ? "Out of Stock"
-              : `Add to Cart — ${formatPrice(Number(product.base_price))}`}
-        </button>
+        {selectedVariant ? (
+          <a
+            href={mailtoHref}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-rose py-3.5 text-sm font-semibold text-brand-cream transition-colors hover:bg-brand-rose/90"
+          >
+            <Mail className="h-4 w-4" />
+            Email to Order — {formatPrice(Number(product.base_price))}
+          </a>
+        ) : (
+          <button
+            type="button"
+            disabled
+            className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-brand-rose py-3.5 text-sm font-semibold text-brand-cream opacity-50"
+          >
+            <Mail className="h-4 w-4" />
+            Select a Size
+          </button>
+        )}
       </div>
     </>
   );

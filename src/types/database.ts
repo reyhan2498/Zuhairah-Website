@@ -29,7 +29,7 @@ export interface ProductVariant {
   size: string;
   color_name: string;
   color_hex: string;
-  image_url?: string | null; 
+  image_url?: string | null;
   stock_quantity: number;
   created_at?: string;
 }
@@ -56,4 +56,3 @@ export interface CheckoutItem {
   variantId: string;
   quantity: number;
 }
-
