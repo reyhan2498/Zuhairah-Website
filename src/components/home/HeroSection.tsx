@@ -4,28 +4,27 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[520px] w-full overflow-hidden sm:min-h-[600px] lg:min-h-[720px]">
+    <section className="relative min-h-[520px] w-full overflow-hidden sm:min-h-[600px] lg:min-h-[80vh]">
       {/* Background image, covers the entire hero */}
       <Image
         src="/hero-banner.jpg"
         alt="Zuhairah sports hijab and activewear tunic displayed on wooden pedestals in a sunlit studio"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-top"
         sizes="100vw"
       />
 
-      {/* Legibility gradient so the text reads cleanly over the photo
-          regardless of how it crops at different screen widths */}
+      {/* Legibility gradient so the text reads cleanly over the photo */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-brand-cream/95 via-brand-cream/60 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-brand-cream/20 via-brand-cream/10 to-transparent sm:bg-gradient-to-r sm:from-brand-cream/60 sm:via-brand-cream/30 sm:to-transparent"
         aria-hidden="true"
       />
 
       {/* Text content */}
-      <div className="relative z-10 flex h-full min-h-[520px] items-center sm:min-h-[600px] lg:min-h-[720px]">
+      <div className="relative z-10 flex h-full min-h-[520px] items-center sm:min-h-[600px] lg:min-h-[80vh]">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 lg:px-16 xl:px-24">
-          <div className="max-w-xl">
+          <div className="max-w-xl rounded-3xl bg-brand-cream/20 p-6 backdrop-blur-md sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
             <p
               className="animate-fade-up mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-brand-charcoal/70"
               style={{ animationDelay: "0ms" }}
@@ -51,7 +50,7 @@ export function HeroSection() {
             >
               <Link
                 href="#shop"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-charcoal px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-charcoal/90"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-rose px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-charcoal/90"
               >
                 Shop the edit
                 <ArrowRight className="h-4 w-4" />

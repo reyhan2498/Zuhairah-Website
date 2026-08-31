@@ -17,42 +17,43 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-brand-charcoal/10 bg-white/95 backdrop-blur-sm">
       <div className="px-6 sm:px-10 lg:px-16">
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="grid h-20 grid-cols-3 items-center gap-4">
           {/* Mobile menu button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-rose transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-8 justify-self-start lg:justify-self-end">
+            <button
+              type="button"
+              className="lg:hidden p-2 -ml-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
 
-          {/* Logo */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="relative text-sm font-semibold uppercase text-brand-charcoal/80 tracking-[0.14em] transition-colors hover:text-brand-rose after:absolute after:-bottom-1 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-rose after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+            
+          {/* Center: logo */}
           <Link
             href="/"
-            className="font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-rose shrink-0"
+            className="justify-self-center font-serif text-2xl sm:text-3xl font-semibold tracking-[0.06em] text-brand-rose"
           >
             ZUHAIRAH
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="relative text-[11px] font-semibold uppercase text-brand-charcoal/80 tracking-[0.14em] transition-colors hover:text-brand-rose after:absolute after:-bottom-1 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-rose after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
           {/* Contact — cart/checkout is disabled, customers enquire by email */}
           <a
             href="mailto:hello@zuhairah.com"
-            className="p-2 text-brand-charcoal hover:text-brand-rose transition-colors"
+            className="justify-self-end text-brand-charcoal hover:text-brand-rose transition-colors"
             aria-label="Email us"
           >
             <Mail className="h-5 w-5" />
