@@ -79,6 +79,7 @@ const products = [
       "/products/tunic-onyx-black.jpg",
       "/products/tunic-deep-rose.jpg",
       "/products/tunic-sand-dune.jpg",
+      "/products/tunic-sage-green.jpg",
     ],
     is_featured: true,
     variants: [
