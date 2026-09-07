@@ -44,10 +44,10 @@ const products = [
       "Breathability Index: 9/10 | Moisture-Wicking: Advanced Dry-Fit | Slip-Resistance: 5/5 | Fabric: 88% Polyester, 12% Spandex",
     base_price: 34.99,
     images: [
+      "/products/hijab-sand-dune.jpg",
       "/products/hijab-onyx-black.jpg",
       "/products/hijab-deep-rose.jpg",
-      "/products/hijab-sage-green.jpg",
-      "/products/hijab-sand-dune.jpg",
+      "/products/hijab-sage-green.jpg",   
     ],
     is_featured: true,
     variants: [
@@ -76,8 +76,8 @@ const products = [
       "Breathability Index: 10/10 | Moisture-Wicking: Pro-Grade | Fabric: 75% Recycled Polyester, 25% Elastane | UPF 50+ Sun Protection",
     base_price: 58.99,
     images: [
-      "/products/tunic-onyx-black.jpg",
       "/products/tunic-deep-rose.jpg",
+      "/products/tunic-onyx-black.jpg",
       "/products/tunic-sand-dune.jpg",
       "/products/tunic-sage-green.jpg",
     ],
