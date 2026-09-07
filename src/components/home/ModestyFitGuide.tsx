@@ -32,7 +32,7 @@ const ratings = [
 
 export function ModestyFitGuide() {
   return (
-    <section className="bg-brand-rose/50 py-16 sm:py-20">
+    <section className="bg-brand-rose/40 py-16 sm:py-20">
       <div className="px-6 sm:px-10 lg:px-16">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-brand-charcoal/50 mb-2">
